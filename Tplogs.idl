@@ -1,0 +1,27 @@
+/*
+
+Generation des talons, etc. : 
+idlj -fall Tplogs.idl
+*/
+// Do we need struct for the log? 
+module Tplogs {
+
+ struct Log {
+   string lan; // NUM LAN
+   string ID; // ID PC
+   string date; //DATE
+   string body; //Message 
+ };
+
+
+
+ interface Tplogs {
+   void writeToMainLog(in File file) ;
+   //Dont really the parameters, do we send the file? so we write through a stream?
+   boolean isMainLogAvailable();
+   void iAmWritingToMainLog();
+   boolean canIWriteToMainLog(); // 
+   boolean mainLogIsFree();
+ };
+
+};
